@@ -1,0 +1,24 @@
+{
+  "name": "Quanly",
+  "description": "Fix Home Management",
+  "main": "",
+  "authors": [
+    "Minh Anh Le"
+  ],
+  "license": "MIT",
+  "homepage": "index.html",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-material-datetimepicker": "^1.4.0",
+    "angular-aria": "^1.5.8",
+    "angular-material-data-table": "^0.10.9",
+    "angular-ui-router": "^0.3.1",
+    "moment": "^2.14.1",
+    "bootstrap": "^3.3.7",
+    "angular-bootstrap-calendar": "^0.23.0"
+  },
+  "resolutions": {
+	"jquery": "^3.1.0"
+  }
+}

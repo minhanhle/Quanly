@@ -1,0 +1,1 @@
+var app = angular.module('fixhomeApp',['ngMaterial','md.data.table', 'ui.router','ngCookies','ngMaterialDatePicker']);

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="fixhomeApp">
+    <head>
+        <title>Thực tập</title>
+        <meta charset="utf-8"/>
+        
+		<script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/angular-material/angular-material.js"></script>
+        <script src="bower_components/angular-material-data-table/dist/md-data-table.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-aria/angular-aria.js"></script>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+		<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="bower_components/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar.min.js"></script>
+		<script src="bower_components/momentjs/min/moment-with-locales.min.js"></script>
+		<script src="bower_components/angular-material-datetimepicker/js/angular-material-datetimepicker.min.js"></script>
+		<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+		<script src="modules/module.js"></script>
+        <script src="modules/controller.js"></script>
+		<script src="modules/uploadImage.js"></script>
+		<script src="modules/directives.js"></script>
+		<script src="modules/router.js"></script>
+		<script src="modules/services.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.css">
+        <link rel="stylesheet" type="text/css" href="bower_components/angular-material-data-table/dist/md-data-table.css">
+		<link rel="stylesheet" type="text/css" href="bower_components/angular-material-datetimepicker/css/material-datetimepicker.min.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		
+    </head>
+    <body layout="column">
+		<div ng-include="'views/navBar.html'"></div>
+		<div ui-view class="min-height"></div>
+	</body>

@@ -1,0 +1,118 @@
+<div class="md-toolbar-tools padding-15">
+	<span>Employee New</span>
+</div>
+<div layout="row">
+	<div flex="45" class="padding-15" layout="column">
+		
+			<span>Số chứng minh nhân dân</span> 
+			<md-input-container>
+				<input type="text" ng-model="data.cmnd"> 
+			</md-input-container> 
+			
+			<span>Họ tên nhân viên</span>
+			<md-input-container>
+				<input type="text" ng-model="data.hoten"> 
+			</md-input-container> 
+			
+			<span>Ngày sinh</span> 
+			<md-input-container>
+				<input mdc-datetime-picker="" time="false" date="true" type="text" 
+				format="DD/MM/YYYY" ng-model="data.ngaysinh">
+			</md-input-container>
+			<br>
+			
+			<span>Giới tính</span> 
+			<md-input-container> 
+				<md-select ng-model="data.gioitinh">
+          			<md-option value="Nam">Nam</md-option>
+          			<md-option value="Nữ">Nữ</md-option>
+        		</md-select>
+			</md-input-container>
+			<br>
+			
+			<span>Quê quán</span> 
+			<md-input-container>
+				<input type="text" ng-model="data.quequan"> 
+			</md-input-container> 
+			
+			<span>Địa chỉ</span> 
+			<md-input-container>
+				<input type="text" ng-model="data.diachihientai"> 
+			</md-input-container>
+			
+			<span>Số điện thoại</span> 
+			<md-input-container>
+				<input type="text" ng-model="data.sodt"> 
+			 </md-input-container>
+			
+			<span>Email</span> 
+			<md-input-container>
+				<input type="text" ng-model="data.email"> 
+			 </md-input-container>
+			
+			<span>Trình độ học vấn</span> 
+			<md-input-container>
+				<input type="text" ng-model="data.trinhdohocvan"> 
+			 </md-input-container>
+		
+	</div>
+	<div flex="10"></div>
+	<div flex="45" class="padding-15" layout="column">
+		
+			<span>Khu vực làm việc</span> 
+			<md-input-container>
+				<md-select ng-model="data.diachi.tenkhuvuc">
+					<md-option ng-value="kv" ng-repeat="kv in vm.khuvuc">{{kv}}</md-option>
+				</md-select>
+			</md-input-container>
+			<br>
+			<span>Quận</span> 
+			<md-input-container>
+				<md-select ng-model="data.diachi.quan">
+						<md-option ng-value="q.tenquan" ng-repeat="q in vm.quans | filter: {tenkhuvuc: data.diachi.tenkhuvuc }">{{q.tenquan}}</md-option>
+				</md-select>
+			</md-input-container>
+			<br><br>
+			
+			<span>Sở trường</span> 
+			<md-input-container>
+				<md-select ng-model="data.sotruong" multiple ng-disabled ="vm.edit">
+					<md-optgroup>
+						<md-option ng-value="dv.tenDichVu" ng-repeat="dv in vm.dsdv">{{dv.tenDichVu}}</md-option>
+					</md-optgroup>
+				</md-select>
+			</md-input-container>
+			<br><br>
+			
+			<span>Mô tả kinh nghiệm</span> 
+			<md-input-container>
+				<textarea type="text" ng-model="data.motakinhnghiem"></textarea> 
+			</md-input-container>
+			
+			<span>Số năm kinh nghiệm</span> 
+			<md-input-container>
+				<input type="text" ng-model="data.sonamkinhnghiem"> 
+			</md-input-container>  
+			
+			<span>Đánh giá</span> 
+			<md-input-container>
+				<input type="text" ng-model="data.danhgia"> 
+			</md-input-container>  
+					
+			<span>Hình ảnh</span> 
+			<!--<md-input-container>-->
+				<!--<input type="text" ng-model="data.hinhanh">-->
+				<input type="file" ng-file-select="onFileSelect($files)" >
+				<!--<input type="text" ng-model="vm.nv.hinhanh"> -->
+				<img ng-src="{{imageSrc}}" alt="Cập nhật hình ảnh" height="250px" width="250px">
+			<!--</md-input-container>-->
+			
+		
+	</div>
+</div>
+<span flex></span>
+<div layout="row">
+	<span flex></span>
+	<md-button class="md-raised" ng-click="vm.themnv()">Save</md-button>
+	<md-button class="md-raised">Cancel</md-button>
+</div>

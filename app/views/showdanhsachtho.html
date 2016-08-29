@@ -1,0 +1,45 @@
+<md-dialog aria-label="Danh sánh tìm kiếm"  ng-cloak flex = "60">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Danh sách tìm kiếm</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="images/cancel.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+		<span ng-if="timkiem.length == 0">Không có thợ thõa điều kiện trên</span>
+		<div class="md-dialog-content"  layout="column">
+		<md-card ng-repeat="tk in timkiem">
+			<md-card-title layout="row">
+				<md-card-title-media>
+					<div class="md-media-lg card-media"><img ng-src="images/image1.jpg"></div>
+				</md-card-title-media>
+				<md-card-title-text layout="column" class="padding-l15">
+					<span class="md-headline">{{tk.hoten}}</span>
+					<div layout="row"> 
+						<md-button target="_blank" ng-disabled="true"class="md-icon-button">
+							<md-icon md-svg-icon="images/tag.svg"></md-icon>
+						</md-button>
+						<span class="padding-t10">Sở trường</span>
+					</div>
+					<div layout="row" >
+						<md-button class="md-mini md-raised md-primary" ng-repeat="st in tk.sotruong">{{st}}</md-button>
+					</div>
+					<br>
+					<div layout="row">
+						<div flex></div>
+						<span class="padding-t10">Tạo yêu cầu</span>
+						<md-button target="_blank" class="md-icon-button" ng-click="modelNew(tk.cmnd)">
+							<md-icon md-svg-icon="images/right-arrow.svg"></md-icon>
+						</md-button>
+					</div>
+				</md-card-title-text>
+			</md-card-title>
+      	</md-card>
+		</div>
+    </md-dialog-content>
+  </form>
+</md-dialog>

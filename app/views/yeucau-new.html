@@ -1,0 +1,133 @@
+<div>
+<div class="md-toolbar-tools padding-15">
+	<span>Thêm yêu cầu</span>
+</div>
+<div layout="row">
+	<div flex="45" class="padding-15" layout="column">
+			<span>Mã yêu cầu</span> 
+			<md-input-container>
+				<input type="text" ng-model="vm.mayc" ng-disabled ="true"> 
+			</md-input-container> 
+		
+			<span>Ngày đặt yêu cầu</span>
+			<md-input-container>
+				<input mdc-datetime-picker="" time="true" date="true" type="text" 
+				format="DD/MM/YYYY HH:mm:ss" ng-model="vm.yc.ngaydatyeucau" value="new Date()" >
+			</md-input-container>
+		
+			<span>Họ tên khách hàng</span>
+			<md-input-container>
+				<input type="text" ng-model="vm.yc.hotenKH"> 
+			</md-input-container>
+		
+			<!--<md-input-container>
+				<span>CMND khách hàng</span> 
+				<input type="text" ng-model="vm.yc.cmndKH"> 
+			</md-input-container> -->
+		
+			<span>Số điện thoại</span> 
+			<md-input-container>
+				<input type="text" ng-model="vm.yc.sodt"> 
+			</md-input-container> 
+		
+			<span>Email khách hàng</span> 
+			<md-input-container>
+				<input type="text" ng-model="vm.yc.email"> 
+			</md-input-container>
+		
+			<span>Địa chỉ khách hàng</span> 
+			<md-input-container>
+				<input type="text" ng-model="vm.yc.diachi"> 
+			</md-input-container>
+		
+			<span>Dịch vụ yêu cầu</span> 
+			<md-input-container>
+				<!--<input type="text" ng-model="vm.yc.dichvuyc"> -->
+				<md-select ng-model="vm.yc.dichvuyc" multiple>
+					<md-optgroup>
+						<md-option ng-value="dv.tenDichVu" ng-repeat="dv in vm.dsdv">{{dv.tenDichVu}}</md-option>
+					</md-optgroup>
+				</md-select>
+			</md-input-container>
+			<br>
+		
+			<span>Quận</span> 
+			<md-input-container>
+				<md-select ng-model="vm.yc.quan" ng-disabled ="vm.edit">
+					<md-option ng-value="q.tenquan" ng-repeat="q in vm.quan">{{q.tenquan}}</md-option>
+				</md-select>
+				<!--<input type="text" ng-model="vm.yc.quan" ng-disabled ="vm.edit"> -->
+			</md-input-container>
+			<br>
+		
+			<span>Mô tả</span> 
+			<md-input-container>
+				<textarea ng-model="vm.yc.mota" md-maxlength="300" ></textarea>
+			</md-input-container>
+	</div>
+	<div flex="10"></div>
+	<div flex="45" class="padding-15" layout="column">
+			<span>Ngày thực hiện</span>
+			<md-input-container>
+				<input mdc-datetime-picker="" time="false" date="true" type="text" 
+				format="DD/MM/YYYY" ng-model="vm.yc.ngaylam">
+			</md-input-container>
+			
+			<div  layout-align="space-between center" layout = "row">
+				<div layout="column" flex="45">
+					<span>Thời gian bắt đầu</span>
+					<md-input-container >
+						<input mdc-datetime-picker="" time="true" date="false" type="text" 
+						format="HH:mm" ng-model="vm.yc.giobatdau">
+					</md-input-container>
+				</div>
+				<div layout="column" flex="45">
+					<span>Thời gian kết thúc</span>
+					<md-input-container >
+						<input mdc-datetime-picker="" time="true" date="false" type="text" 
+						format="HH:mm" ng-model="vm.gioketthuc">
+					</md-input-container>
+				<!--<md-content flex="45">
+					<md-datepicker ng-model="vm.yc.gioketthuc" ng-disabled ="vm.edit"></md-datepicker>
+				</md-content>-->
+				</div>
+			</div>
+		
+			<span>Họ tên thợ</span> 
+			<md-input-container>
+				<input type="text" ng-model="vm.hotenTho"> 
+			</md-input-container>
+		
+			<span>CMND thợ</span> 
+			<md-input-container>
+				<input type="text" ng-model="vm.cmndTho"> 
+			</md-input-container>
+		
+			<span>Số điện thoại thợ</span> 
+			<md-input-container>
+				<input type="text" ng-model="vm.sdtTho"> 
+			</md-input-container> 
+		
+			<span>Trạng thái</span> 
+			<md-input-container>
+				<input type="text" ng-model="vm.yc.trangthai" value="Bắt đầu" name="Bắt đầu"> 
+			</md-input-container> 
+			<br>
+		
+			<span>Phí dịch vụ</span> 
+			<md-input-container>
+				<input type="text" ng-model="vm.yc.phidichvu"> 
+			</md-input-container>
+		
+			<span>Nhận xét</span> 
+			<md-input-container>
+				<textarea type="text" ng-model="vm.yc.nhanxet"></textarea> 
+			</md-input-container> 
+	</div>
+</div>
+<span flex></span>
+<div layout="row">
+	<span flex></span>
+	<md-button class="md-raised" ng-click="vm.themyc()">Save</md-button>
+	<md-button class="md-raised">Cancel</md-button>
+</div>

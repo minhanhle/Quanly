@@ -1,0 +1,57 @@
+<div class="md-toolbar-tools padding-15">
+	<h2>Thợ</h2>
+   <span flex></span>
+   <md-button class="md-fab md-primary md-hue-2" aria-label="New" ng-click="vm.modelNew()">
+       <md-icon md-svg-icon="images/add.svg"></md-icon>
+   </md-button>
+</div>
+<md-divider></md-divider>
+<div layout="row">
+	<md-table-container>
+	   <table md-table>
+		   <thead md-head md-order="id">
+           		<tr md-row>
+                    <th md-column md-order-by="cmnd">
+                        <span>CMND</span>
+                    </th>
+                    <th md-column md-order-by="hoten">
+                        <span>Họ tên</span>
+                    </th>
+                    <th md-column md-order-by="sodt">
+                        <span>Số điện thoại</span>
+                    </th>
+                    <th md-column md-order-by="diachihientai">
+                        <span>Địa chỉ</span>
+                    </th>
+                    <th md-column md-order-by="sotruong">
+                        <span>Sở trường</span>
+                    </th>
+                    <th md-column md-order-by="motakinhnghiem">
+                        <span>Mô tả</span>
+                    </th>
+                    <th></th>
+                </tr>
+           </thead>
+           <tbody md-body>
+                <tr md-row ng-repeat="row in vm.requestList | orderBy: id">
+                    <td md-cell>{{row.cmnd}}</td>
+                    <td md-cell>{{row.hoten}}</td>
+                    <td md-cell>{{row.sodt}}</td>
+                    <td md-cell>{{row.diachihientai}}</td>
+                    <td md-cell> {{row.sotruong.toString()}}</td>
+                    <td md-cell>{{row.motakinhnghiem}}</td>
+                    <td md-cell layout="row">
+						<md-button class="md-fab md-mini md-primary md-hue-2" aria-label="Profile" ng-click="vm.modelDetail(row.cmnd)">
+                           <md-icon md-svg-icon="images/pencil-edit.svg"></md-icon>
+                        </md-button>
+						<md-button class="md-fab md-mini md-primary md-hue-2" aria-label="Profile" ng-click="vm.showConfirm($event, row.cmnd)">
+                           <md-icon md-svg-icon="images/delete.svg"></md-icon>
+                        </md-button> 
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+   </md-table-container>
+</div>
+<div flex></div>
+<md-table-pagination md-limit="vm.query.limit" md-limit-options="[5, 10, 15]" md-page="vm.query.page" md-total="{{vm.tho.length}}" md-on-paginate="vm.setPage" md-page-select></md-table-pagination>

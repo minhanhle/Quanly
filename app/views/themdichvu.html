@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <title>Demo</title>
+        <meta charset="utf-8"/>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-material/angular-material.js"></script>
+        <script src="bower_components/angular-material-data-table/dist/md-data-table.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-aria/angular-aria.js"></script>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="modules/module.js"></script>
+        <script src="modules/controller.js"></script>
+		<script src="modules/router.js"></script>
+		<script src="modules/services.js"></script>
+		
+        <link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.css">
+        <link rel="stylesheet" type="text/css" href="bower_components/angular-material-data-table/dist/md-data-table.css">
+        <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+	<script>
+		angular.module('app',[]).controller('ctrl', ctrl);
+		function ctrl($scope, $http){
+			$scope.them = function() {
+				$http.post('/dichvu', $scope.dv).then(
+             function successCallback(response) {
+                 	return "Thêm thành công."
+                  }, function errorCallback(response) {
+                    	return "Vui lòng kiểm tra lai các thông tin."
+                  })
+			}
+		}
+	</script>
+    <body layout="column" ng-app="app" ng-controller="ctrl">
+		<input type="text" ng-model="dv.ten">
+		<input type="text" isnumber ng-model="dv.phi">
+		<input type="submit" value="Lưu" ng-click="them()">
+	</body>

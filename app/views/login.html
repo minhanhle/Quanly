@@ -1,0 +1,52 @@
+<!--<md-dialog aria-label="Đăng nhập"  ng-cloak flex = "50">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Đăng nhập</h2>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+		<div layout="column">
+			<md-content class="md-no-momentum">
+				<md-input-container class="md-block" md-no-float>
+					<md-icon md-svg-src="images/blue-user-symbol.svg" ></md-icon>
+					<input ng-model="user.name" type="text" placeholder="Tên đăng nhập">
+				</md-input-container>
+				<md-input-container md-no-float class="md-block">
+					<md-icon md-svg-src="images/open-lock.svg"></md-icon>
+					<input ng-model="user.pass" type="text" placeholder="Mật khẩu">
+				</md-input-container>
+				<div layout-align="center" layout="row">
+					<span>{{message}}</span>
+					<md-button class="md-raised md-primary">Đăng nhập</md-button>
+				</div>
+			</md-content>
+		</div>
+    </md-dialog-content>
+	<div flex></div>
+  </form>
+</md-dialog>-->
+<div flex = "50" layout-align="center center" class="login margin-15">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Đăng nhập</h2>
+      </div>
+    </md-toolbar>
+		<div layout="column" >
+			<md-content>
+				<md-input-container class="md-block" md-no-float>
+					<md-icon md-svg-src="images/blue-user-symbol.svg" ></md-icon>
+					<input ng-model="user.name" type="text" placeholder="Tên đăng nhập">
+				</md-input-container>
+				<md-input-container md-no-float class="md-block">
+					<md-icon md-svg-src="images/open-lock.svg"></md-icon>
+					<input ng-model="user.pass" type="password" placeholder="Mật khẩu">
+				</md-input-container>
+				<span layout-align="center" layout="row">{{vm.message}}</span>
+				<div layout-align="center" layout="row">
+					<md-button class="md-raised md-primary" ng-click="vm.dangnhap()">Đăng nhập</md-button>
+				</div>
+			</md-content>
+		</div>
+	<div flex></div>
+  </div>

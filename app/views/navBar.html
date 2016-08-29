@@ -1,0 +1,64 @@
+<div ng-controller="navBarCtrl as vm">
+    <md-content>
+            <md-toolbar class="md-hue-2">
+              <div class="md-toolbar-tools">
+                <md-button class="md-icon-button" aria-label="Settings" ng-click="vm.toggleLeft()"
+                    ng-hide="isOpenLeft()" ng-if="!vm.isTho">
+                  <md-icon md-svg-icon="images/menu-alt.svg" ></md-icon>
+                </md-button>
+				 
+                <h2>
+                  <span>Management</span>
+                </h2>
+                <span flex></span>
+				  
+                <md-button class="md-icon-button"aria-label="Settings" ng-click="vm.goState('yeucau')">
+                  	<md-icon md-svg-icon="images/notifications-button.svg"></md-icon>
+					<span class="badge" ng-if="vm.num>0">{{vm.num}}</span>
+                </md-button>
+				 <span ng-if = "!root.isLogin">{{$root.user.username}}</span>
+				 <md-button class="md-icon-button" aria-label="Settings" ng-click="vm.logout()">
+                  <md-icon md-svg-icon="images/user-symbol.svg"></md-icon>
+                </md-button>
+				<!--<md-menu>
+					  <md-button aria-label="Account" class="md-icon-button">
+						<md-icon md-menu-origin md-svg-icon="images/user-symbol.svg"></md-icon>
+					  </md-button>
+					  <md-menu-content width="4">
+						<md-menu-item>
+						  <md-button ng-click="vm.logout()">
+							Logout
+						  </md-button>
+						</md-menu-item>
+						<md-menu-item>
+						  <md-button >
+							Change password 
+						  </md-button>
+						</md-menu-item>
+					 </md-menu-content>
+				  </md-menu>-->
+              </div>
+            </md-toolbar>
+        </md-content>
+        <div layout="column" ng-cloak>
+            <section layout="row" flex>
+                <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left">
+                    <md-toolbar layout="row" class="md-hue-2">
+                        <md-button class="md-icon-button" ng-click="vm.close()" aria-label="Settings">
+                            <md-icon md-svg-icon="images/back-alt.svg"></md-icon>
+                        </md-button>
+                        <div class="md-toolbar-tools">
+                            <span>Management</span>
+                        </div>
+                    </md-toolbar>
+                    <md-content>
+                        <md-list flex>
+                            <md-list-item class="md-3-line" ng-repeat="item in vm.items" ng-click="vm.goState(item.state)">
+                                {{item.name}}
+                            </md-list-item>
+                        </md-list>
+                    </md-content>
+                </md-sidenav>
+            </section>
+        </div>
+</div>

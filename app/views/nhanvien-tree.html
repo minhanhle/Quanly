@@ -1,0 +1,28 @@
+<div flex="100" > 
+    <div class="md-toolbar-tools background-tree">
+        <h1>Tìm kiếm</h1>
+		<div flex></div>
+        <md-button class="md-fab md-primary" ng-click="vm.search()" aria-span="Settings">
+            <md-icon md-svg-icon="images/search.svg"></md-icon>
+        </md-button>
+    </div>
+	<md-divider></md-divider>
+    <md-content>
+        <md-input-container md-no-float class="md-block" flex-gt-sm>
+        	<span>Mã nhân viên</span>
+            <input type="text" ng-model="vm.condition.cmnd">
+        </md-input-container>
+
+        <md-input-container md-no-float class="md-block" flex-gt-sm>
+        	<span>Họ tên nhân viên</span>
+            <input type="text" ng-model="vm.condition.hoten">
+        </md-input-container>
+
+        <span class="margin a15">Sở trường</span>
+        <div class="md-block" flex="100">
+            <md-checkbox class="md-primary" ng-repeat="dv in vm.dsdv" ng-click="toggle(dv.tenDichVu, vm.selected)">
+                {{dv.tenDichVu}}
+            </md-checkbox>
+        </div>
+    </md-content>
+</div>
